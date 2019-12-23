@@ -1,0 +1,8 @@
+<h2>商品一覧</h2>
+<% @items.each do |item| %>
+<div class="item_index">
+<p><%= item.title %></p>
+<p>¥<%= item.price %></p>
+<%= item.note %></p>
+</div>
+<% end %>
