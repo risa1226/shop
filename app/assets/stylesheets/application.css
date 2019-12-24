@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+
+ body{
+     font-family: sans-serif;
+ }
+
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px 5%;
+}
+
+.item{
+    width: 50%;
+    margin-top: 20px;
+}
+
+.title_price{
+    position: relative;
+    text-align: center;
+}
+
+.title_price:before{
+    content: '';
+    position: absolute;
+    left: 50%;
+  bottom: -5px;/*線の上下位置*/
+  display: inline-block;
+  width: 200px;/*線の長さ*/
+  height: 1px;/*線の太さ*/
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);/*位置調整*/
+  background-color: #c4c4c4;/*線の色*/
+}
+
+.item > p {
+    text-align: center;
+}
+
+.price{
+    margin-left: 60px;
+}
+
+h2{
+    font-family: Verdana, sans-serif;
+    font-size: 36px;
+    color: #c4c4c4;
+    text-align: center;
+    margin: 100px 0;
+}
