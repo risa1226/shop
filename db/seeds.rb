@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 5.times do |i|
-    Item.create(title: "title #{i}", price: "¥ #{i}", note: "text #{i}")
+    Item.create(title: "title #{i}", price: "¥ #{i}", comment: "#{i}", note: "text #{i}")
 end

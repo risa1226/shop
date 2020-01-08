@@ -3,7 +3,7 @@
 <div class="items">
 <% @items.each do |item| %>
 <div class="item">
-<p class="title_price"><%= item.title %><span class="price">¥</span><%= item.price %></p>
+<p class="title_price"><%= item.title %><span class="price">¥</span><%= item.comment %><%= item.price %></p>
 <p><%= item.note %></p>
 </div>
 <% end %>
