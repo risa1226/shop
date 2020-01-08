@@ -1,11 +1,18 @@
 <%= render 'header' %>
 <h2>商品一覧</h2>
 <div class="items">
-<% @items.each do |item| %>
-<div class="item">
-<p class="title_price"><%= item.title %><span class="price">¥</span><%= item.comment %><%= item.price %></p>
-<p><%= item.note %></p>
-</div>
-<% end %>
+    <% @items.each do |item| %>
+    <div class="item">
+    <%= image_tag 'image_small.png' %>
+    <h3 class="item_title"><%= item.title %></h3>
+    <h3 class="item_price">¥<%= item.comment %></h3>
+    <h3 class="item_price"><%= item.price %></h3>
+    <h4><%= item.note %></h4>
+        <div class="add_cart">
+        <p class="quantity"><span>購入数</span><input type="number" value="1" min="0" max="99" class="number_area"></p>
+        <p><%= image_submit_tag("button_add_cart.png") %></p>
+        </div>
+    </div>
+    <% end %>
 </div>
 <%= render 'footer' %>
