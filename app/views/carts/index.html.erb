@@ -1,0 +1,48 @@
+<%= render 'items/header' %>
+<h2>カート</h2>
+<div class="items">
+    <% @items.each do |item| %>
+    <div class="item">
+    <%= image_tag 'image_small.png' %>
+    <h3 class="item_title"><%= item.title %></h3>
+    <h3 class="item_price">¥<%= item.comment %></h3>
+    <h3 class="item_price"><%= item.price %></h3>
+    <h4><%= item.note %></h4>
+        <div class="add_cart">
+        <p class="quantity"><span>購入数</span><input type="number" value="1" min="0" max="99" class="number_area"></p>
+        <p><%= image_submit_tag "button_change.png" %></p>
+        <p><%= image_submit_tag "button_delete.png" %></p>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+<div class="total_price">
+    <p>合計金額</p>
+    <p>¥<%= @total_price.to_s(:delimited) %></p>
+</div>
+
+<div class="total_item">
+    <p><%= @cart_item[:title] %></p>
+    <p><%= @cart_item[:comment] %></p>
+    <p>¥<%= @cart_item[:price].to_s(:delimited) %></p>
+    <p>×</p>
+    <p><%= @cart_item[:quantity] %></p>
+    <p>=</p>
+    <p>¥<%= @item_total.to_s(:delimited) %></p>
+</div>
+
+<div class="total_postage">
+    <p>送料</p>
+    <p>¥<%= @cart_item[:postage] %></p>
+    <p>×</p>
+    <p><%= @cart_item[:quantity] %></p>
+    <p>=</p>
+    <p>¥<%= @postage_total.to_s(:delimited) %></p>
+</div>
+
+<div class="btn_order">
+<%= image_submit_tag "button_order.png"%>
+</div>
+
+<%= render 'items/footer' %>

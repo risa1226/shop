@@ -143,3 +143,38 @@ li > span{
 .footer_li {
     display: inline-block;
 }
+
+.total_price > p {
+    display: inline-block;
+    font-size: 30px;
+    color: black;
+}
+
+.total_price{
+    width: 60%;
+    margin: 100px auto 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+}
+
+
+.total_item > p , .total_postage > p{
+    display: inline-block;
+    font-size: 24px;
+    color: black;
+    padding-left: 10px;
+}
+
+.total_item, .total_postage{
+    width: 60%;
+    margin: 0 auto;
+    text-align: right;
+    height: 40px;
+}
+
+.btn_order{
+    text-align: center;
+    margin-top: 100px;
+}
