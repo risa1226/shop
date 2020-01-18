@@ -17,6 +17,7 @@
  body{
      font-family: sans-serif;
      color: #919191;
+     text-align: center;
  }
 
 .items{
@@ -31,6 +32,11 @@
     width: 50%;
     margin: 40px 0;
     text-align: center;
+}
+
+.image_small{
+    width: 90%;
+    height: auto;
 }
 
 h3{
@@ -177,4 +183,23 @@ li > span{
 .btn_order{
     text-align: center;
     margin-top: 100px;
+}
+
+.top_image{
+    width: 100%;
+    height: auto;
+}
+
+.image_top{
+    position: relative;
+}
+
+.arrow_under{
+    position: absolute;
+    left: 47%;
+    bottom: 5%;
+}
+
+.image_middle{
+    margin: 140px 0 70px 0;
 }

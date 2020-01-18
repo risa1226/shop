@@ -1,0 +1,27 @@
+<%= render 'items/header' %>
+<div class="image_top">
+<%= image_tag 'image.png', class: "top_image" %>
+<%= link_to image_tag("arrow_under.png"), "/", class: "arrow_under" %>
+</div>
+
+<div class="items">
+    <% @items[0..1].each do |item| %>
+    <div class="item">
+    <%= image_tag 'image_small.png', class: "image_small" %>
+    <h3 class="item_title"><%= item.title %></h3>
+    <h3 class="item_price">¥<%= item.comment %></h3>
+    <h3 class="item_price"><%= item.price %></h3>
+    <h4><%= item.note %></h4>
+    </div>
+    <% end %>
+</div>
+
+<%= link_to image_tag("items_page.png"), "/items", class: "items_page" %>
+
+<div class="image_middle">
+<%= image_tag 'image_middle.png' %>
+</div>
+
+<%= link_to image_tag("intro_page.png"), "/", class: "intro_page" %>
+
+<%= render 'items/footer' %>
