@@ -203,3 +203,20 @@ li > span{
 .image_middle{
     margin: 140px 0 70px 0;
 }
+
+.intro{
+    margin-bottom: 200px;
+}
+
+h3{
+    font-size: 36px;
+}
+
+.map{
+    margin-top: 80px;
+}
+
+.mail{
+    text-decoration: none;
+    color: #919191;
+}
