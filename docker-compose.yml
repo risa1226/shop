@@ -1,0 +1,42 @@
+version: '3'
+services:
+  admin:
+    build:
+      context: ./
+      dockerfile: ./docker/rails/Dockerfile
+    command: /bin/sh -c "rm -f tmp/pids/server.pid; bundle exec rails s -p 3000 -b '0.0.0.0'"
+    # command: /bin/sh
+    volumes:
+      - ./src:/app
+      - bundle:/bundle
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    environment:
+      TZ: "Asia/Tokyo"
+    depends_on:
+      - mysql
+    networks:
+      - local_shop_network
+  mysql:
+    build: ./docker/mysql
+    environment:
+      MYSQL_DATABASE: localdatabse
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      TZ: Asia/Tokyo
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - local_shop_network
+      
+networks:
+  local_shop_network:
+    external: true
+volumes:
+  bundle:
+    driver: local
+  db:
