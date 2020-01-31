@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_102247) do
+ActiveRecord::Schema.define(version: 2020_01_31_123708) do
 
   create_table "carriages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "carriage_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_102247) do
     t.datetime "date_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "carriage_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_01_28_102247) do
     t.integer "order_id"
     t.integer "user_id"
     t.integer "cart_id"
-    t.integer "cariiage_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
