@@ -1,0 +1,33 @@
+<%= render 'items/header' %>
+<h2>カート</h2>
+<div class="items">
+    <% @orders.each do |order| %>
+    <div class="item">
+    <%= image_tag 'image_small.png' %>
+    <h3 class="item_name"><%= order.item.name %></h3>
+    <h3 class="item_second_name"><%= order.item.second_name %></h3>
+    <h3 class="item_price">¥<%= order.item.price %></h3>
+    <h4><%= order.item.description %></h4>
+        <%= form_with url: update_item_path do |f| %>
+            <div class="field">
+                <%= f.label :quantity, "購入数" %>
+                <%= f.number_field :quantity, min:1,max:99, value: order.quantity %>
+                <%= f.hidden_field :item_id, :value => order.item.id %>
+            </div>
+            <div class="action">
+                <%= f.submit "変更する" %>
+            </div>
+        <% end %>
+        <%= form_with url: delete_item_path do |f| %>
+            <div class="field">
+                <%= f.hidden_field :item_id, :value => order.item.id %>
+            </div>
+            <div class="action">
+                <%= f.submit "削除" %>
+            </div>
+        <% end%>
+    </div>
+    <% end %>
+</div>
+
+<%= render 'items/footer' %>

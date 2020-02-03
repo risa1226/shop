@@ -1,14 +1,36 @@
 class CartsController < ApplicationController
-    def index
-        @items = Item.all
+    before_action :setup_order!
 
-        @cart_item = {title:'さくらんぼ', comment:'1Kg バラ詰め', price:3800, quantity:4, postage:500} 
-
-        @total_price = (@cart_item[:price] * @cart_item[:quantity]) + (@cart_item[:postage] * @cart_item[:quantity])
-    
-        @item_total = @cart_item[:price] * @cart_item[:quantity]
-
-        @postage_total = (@cart_item[:postage] * @cart_item[:quantity])
-
+    def show
+        @orders = current_cart.orders
     end
+
+    def add_item
+        if @order.blank?
+            @order = current_cart.orders.build(item_id: params[:item_id])
+        end
+
+        @order.quantity = @order.quantity.to_i + params[:quantity].to_i
+        @order.save
+
+        redirect_to '/carts'
+    end
+
+    def update_item
+        @order.update(quantity: params[:quantity].to_i)
+        redirect_to '/carts'
+    end
+
+    def delete_item
+        @order.destroy
+        redirect_to '/carts'
+    end
+
+    
+    private
+
+    def setup_order!
+        @order = current_cart.orders.find_by(item_id: params[:item_id])
+    end
+
 end
