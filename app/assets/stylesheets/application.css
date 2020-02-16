@@ -49,11 +49,19 @@ h4{
     font-weight: normal;
 }
 
-.item_title{
+.description{
+    margin: 40px 100px;
+}
+
+.item_name{
     width: 360px;
     margin: 30px auto;
     padding-bottom: 20px;
     border-bottom: 1px solid #919191;
+}
+
+.item_second_name{
+    display: inline;
 }
 
 .item_price{
@@ -208,10 +216,6 @@ li > span{
     margin-bottom: 200px;
 }
 
-h3{
-    font-size: 36px;
-}
-
 .map{
     margin-top: 80px;
 }
@@ -219,4 +223,12 @@ h3{
 .mail{
     text-decoration: none;
     color: #919191;
+}
+
+.empty_cart{
+    margin: 0 auto 100px auto;
+}
+
+.action{
+    margin: 10px 0;
 }
