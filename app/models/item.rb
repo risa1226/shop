@@ -1,3 +1,3 @@
 class Item < ApplicationRecord
-    has_many :orders
+    belongs_to :order, optional: true
 end

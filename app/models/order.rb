@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-    has_many :carts
-    has_many :items
+    belongs_to :cart, optional: true
+    belongs_to :item, optional: true
 end
