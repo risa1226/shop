@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users,:controllers => {
-    :registrations => "users/registrations"
+    :registrations => "users/registrations",
+    :sessions => "users/sessions"
   }
   get '/users', to: redirect("/users/sign_up")
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'displays#home'
   resources :displays do
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
       get 'info'
     end
   end
+  
   get 'company', to: 'displays#company'
   get 'contact', to: 'displays#contact'
   get 'info', to: 'displays#info'
@@ -21,4 +24,11 @@ Rails.application.routes.draw do
   post '/add_item', to: 'carts#add_item'
   post '/update_item', to: 'carts#update_item'
   post '/delete_item', to: 'carts#delete_item'
+  resources :carts do
+    collection do
+      get :confirm
+      get :complete
+      get :save_user
+    end
+  end
 end
