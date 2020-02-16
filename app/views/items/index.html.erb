@@ -4,14 +4,20 @@
     <% @items.each do |item| %>
     <div class="item">
     <%= image_tag 'image_small.png' %>
-    <h3 class="item_title"><%= item.title %></h3>
-    <h3 class="item_price">¥<%= item.comment %></h3>
-    <h3 class="item_price"><%= item.price %></h3>
-    <h4><%= item.note %></h4>
-        <div class="add_cart">
-        <p class="quantity"><span>購入数</span><input type="number" value="1" min="0" max="99" class="number_area"></p>
-        <p><%= image_submit_tag("button_add_cart.png") %></p>
-        </div>
+    <h3 class="item_name"><%= item.name %></h3>
+    <h3 class="item_second_name"><%= item.second_name %></h3>
+    <h3 class="item_price">¥<%= item.price %></h3>
+    <h4 class="description"><%= item.description %></h4>
+        <%= form_with url: add_item_path do |f| %>
+            <div class="field">
+                <%= f.label :quantity, "購入数" %>
+                <%= f.number_field :quantity, min:1,max:99 %>
+                <%= f.hidden_field :item_id, :value => item.id %>
+            </div>
+            <div class="action">
+                <%= f.submit "カートに入れる" %>
+            </div>
+        <% end %>
     </div>
     <% end %>
 </div>

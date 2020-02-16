@@ -1,13 +1,16 @@
 <%= render 'items/header' %>
 <h2>カート</h2>
 <div class="items">
+    <% if @orders.blank? %>
+        <h3 class="empty_cart"><%= "カートは空です" %></h3>
+    <% end %>
     <% @orders.each do |order| %>
     <div class="item">
     <%= image_tag 'image_small.png' %>
     <h3 class="item_name"><%= order.item.name %></h3>
     <h3 class="item_second_name"><%= order.item.second_name %></h3>
     <h3 class="item_price">¥<%= order.item.price %></h3>
-    <h4><%= order.item.description %></h4>
+    <h4 class="description"><%= order.item.description %></h4>
         <%= form_with url: update_item_path do |f| %>
             <div class="field">
                 <%= f.label :quantity, "購入数" %>
@@ -29,5 +32,14 @@
     </div>
     <% end %>
 </div>
-
+<% if @orders.blank? %>
+    <%= button_to '商品一覧へ', {controller: 'items', action: 'index'}, {method: :get} %>
+<% else %>
+    <div class="action">
+        <%= button_to '商品一覧へ', {controller: 'items', action: 'index'}, {method: :get} %>
+    </div>
+    <div class="action">
+        <%= button_to 'レジへ進む', {controller: 'carts', action: 'save_user'}, {method: :get} %>
+    </div>
+<% end %>
 <%= render 'items/footer' %>

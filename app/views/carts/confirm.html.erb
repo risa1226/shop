@@ -1,0 +1,32 @@
+<%= render 'items/header' %>
+<h2>注文確認</h2>
+
+<div class="total_price">
+    <p>合計金額</p>
+    <p>¥<%= @total_price.to_s(:delimited) %></p>
+</div>
+
+<% @orders.each do |order| %>
+<div class="total_item">
+    <p><%= @item_name %></p>
+    <p><%= @item_second_name %></p>
+    <p>¥<%= @item_price.to_s(:delimited) %></p>
+    <p>×</p>
+    <p><%= order.quantity %></p>
+    <p>=</p>
+    <p>¥<%= (order.item.price * order.quantity).to_s(:delimited) %></p>
+</div>
+<% end %>
+
+<div class="total_postage">
+    <p>送料</p>
+    <p>¥<%= current_cart.carriage.price %></p>
+    <p>×</p>
+    <p><%= @total_quantity %></p>
+    <p>=</p>
+    <p>¥<%= @carriage_total.to_s(:delimited) %></p>
+</div>
+
+<%= button_to '注文確定', {controller: 'carts', action: 'complete'}, {method: :get} %>
+    
+<%= render 'items/footer' %>

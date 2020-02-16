@@ -1,11 +1,45 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2> <%= t('users.registrations.edit.mypage') %></h2>
+<%= notice %>
+<%= alert %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label t('users.registrations.new.name') %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.phone') %><br />
+    <i>(<%= t('users.registrations.edit.alphanumeric_characters') %>)</i><br />
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.postcode') %><br />
+    <i>(<%= t('users.registrations.edit.alphanumeric_characters') %>)</i><br />
+    <%= f.text_field :postcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.prefecture_id') %><br />
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, :include_blank => true%>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.city') %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.other_address') %><br />
+    <%= f.text_field :other_address %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -13,12 +47,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label t('users.passwords.edit.new_password') %><br />
+    <i>(<%= t('users.registrations.edit.leave_blank_if_you_dont_want_to_change_it') %>)</i><br />
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+      (<%= t('users.registrations.edit.alphanumeric_characters') %>
+      <%= @minimum_password_length %>
+      <%=  t('users.registrations.edit.characters_minimum') %>)
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
@@ -27,17 +63,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %><br />
+    <i>(<%= t('users.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit t('users.registrations.edit.update') %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3><%= t('users.registrations.edit.cancel_my_account') %></h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%=  t('users.registrations.edit.unhappy') %> <%= button_to  t('users.registrations.edit.cancel'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to  t('users.shared.links.carts_back'), carts_path %>

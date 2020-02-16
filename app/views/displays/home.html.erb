@@ -8,10 +8,10 @@
     <% @items[0..1].each do |item| %>
     <div class="item">
     <%= image_tag 'image_small.png', class: "image_small" %>
-    <h3 class="item_title"><%= item.title %></h3>
-    <h3 class="item_price">¥<%= item.comment %></h3>
-    <h3 class="item_price"><%= item.price %></h3>
-    <h4><%= item.note %></h4>
+    <h3 class="item_name"><%= item.name %></h3>
+    <h3 class="item_second_name"><%= item.second_name %></h3>
+    <h3 class="item_price">¥<%= item.price %></h3>
+    <h4><%= item.description %></h4>
     </div>
     <% end %>
 </div>

@@ -1,7 +1,18 @@
-<h2>Sign up</h2>
+<h2><%= t('users.registrations.new.sign_up') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.name') %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.phone') %><br />
+    <i>(<%= t('users.registrations.edit.alphanumeric_characters') %>)</i><br />
+    <%= f.text_field :phone %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -10,8 +21,10 @@
 
   <div class="field">
     <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% if @minimum_password_length %><br />
+    <em>(<%= t('users.registrations.edit.alphanumeric_characters') %>
+      <%= @minimum_password_length %> 
+    <%= t('activerecord.attributes.user.characters_minimum') %>)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -21,8 +34,30 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.postcode') %><br />
+    <i>(<%= t('users.registrations.edit.alphanumeric_characters') %>)</i><br />
+    <%= f.text_field :postcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.prefecture_id') %><br />
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, :include_blank => true%>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.city') %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label t('users.registrations.new.other_address') %><br />
+    <%= f.text_field :other_address %>
+  </div>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit t('users.registrations.new.sign_up') %>
   </div>
 <% end %>
 
