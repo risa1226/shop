@@ -40,6 +40,7 @@ class CartsController < ApplicationController
     end
 
     def confirm
+        @user = current_user
         @orders = current_cart.orders
 
         @total_item_price = 0

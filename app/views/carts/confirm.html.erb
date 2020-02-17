@@ -1,5 +1,14 @@
 <%= render 'items/header' %>
 <h2>注文確認</h2>
+<h3>お届け先/お客様登録情報</h3>
+<div class="user_info">
+    <p>お名前：<%= @user.name %>様</p>
+    <p>電話番号：<%= @user.phone %></p>
+    <p>メールアドレス：<%= @user.email %></p>
+    <p>郵便番号：<%= @user.postcode %></p>
+    <p>住所：<%= @user.prefecture.name %><%= @user.city %><%= @user.other_address %></p>
+    <%= link_to '変更する', '/users/edit' %>
+</div>
 
 <div class="total_price">
     <p>合計金額</p>
@@ -28,5 +37,5 @@
 </div>
 
 <%= button_to '注文確定', {controller: 'carts', action: 'complete'}, {method: :get} %>
-    
+<%= link_to 'カート画面に戻る', '/carts'%>
 <%= render 'items/footer' %>
