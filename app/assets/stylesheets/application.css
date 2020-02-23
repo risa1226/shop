@@ -34,6 +34,11 @@
     text-align: center;
 }
 
+.item_description{
+    width: 70%;
+    margin: 20px auto;
+}
+
 .image_small{
     width: 90%;
     height: auto;
@@ -69,9 +74,9 @@ h4{
     padding: 0 20px;
 }
 
-.quantity{
-    font-size: 24px;
-    color: #F48780;
+.field_quantity{
+    display: flex;
+    justify-content: center;
 }
 
 .number_area{
@@ -79,6 +84,19 @@ h4{
     width: 40px;
     height: 28px;
     margin: 20px;
+}
+
+.order_quantity{
+    font-size: 22px;
+    color: #F48780;
+    margin-right: 10px;
+}
+
+.number_field{
+    height: 24px;
+    width: 60px;
+    border-color: #919191;
+    border-style: solid;
 }
 
 .add_cart{
@@ -231,4 +249,103 @@ li > span{
 
 .action{
     margin: 10px 0;
+}
+
+.info_carriage{
+    text-align: left;
+    margin-left: 20%; 
+}
+
+.info_carriage > span {
+    font-weight: bold;
+    color: #557ADB;
+}
+
+.btn_add_cart, .btn_delete_item, .btn_item_index{
+    width: 130px;
+    height: 30px;
+    background: #55BBDB;
+    border-color: #55BBDB;
+    border-radius: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn_add_cart:hover, .btn_delete_item:hover, .btn_item_index:hover{
+    color: #55BBDB;
+    background-color: #ffffff;
+}
+
+.btn_change_quantity, .btn_items_index, .btn_go_confirm, .btn_complete, .btn_sign_in, .btn_sign_up, .btn_user_update{
+    width: 130px;
+    height: 30px;
+    background: #F48780;
+    border-color: #F48780;
+    border-radius: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn_change_quantity:hover, .btn_items_index:hover, .btn_go_confirm:hover, .btn_complete:hover, .btn_sign_in:hover, .btn_sign_up:hover, .btn_user_update:hover{
+    color: #F48780;
+    background-color: #ffffff;
+}
+
+.btn_edit_user, .btn_return_cart, .btn_new_sign_up, .btn_log_in{
+    text-decoration: none;
+    padding: 10px;
+    background: #55BBDB;
+    border-color: #55BBDB;
+    border-radius: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn_user_delete{
+    text-decoration: none;
+    height: 30px;
+    width: 100px;
+    background: #557ADB;
+    border-color: #557ADB;
+    border-radius: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.forgot_password, .btn_user_update{
+    margin: 10px auto;
+}
+
+.btn_forgot_password{
+    text-decoration: none;
+    color: #557ADB;
+}
+
+.btn_complete{
+    margin: 80px auto 60px auto;
+}
+
+.btn_sign_up{
+    margin-top: 10px;
+}
+
+.btn_sign_in, .log_in{
+    margin: 10px auto;
+}
+
+.confirm_user{
+    color: #000000;
+}
+
+.user_info{
+    color: #000000;
+    margin-top: 80px;
+}
+
+.user_info > p > span{
+    font-weight: bold;
 }
