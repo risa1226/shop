@@ -1,13 +1,13 @@
 <%= render 'items/header' %>
 <h2>注文確認</h2>
-<h3>お届け先/お客様登録情報</h3>
+<h3 class="confirm_user">お届け先/お客様登録情報</h3>
 <div class="user_info">
-    <p>お名前：<%= @user.name %>様</p>
-    <p>電話番号：<%= @user.phone %></p>
-    <p>メールアドレス：<%= @user.email %></p>
-    <p>郵便番号：<%= @user.postcode %></p>
-    <p>住所：<%= @user.prefecture.name %><%= @user.city %><%= @user.other_address %></p>
-    <%= link_to '変更する', '/users/edit' %>
+    <p><span>お名前</span>：<%= @user.name %> 様</p>
+    <p><span>電話番号</span>：<%= @user.phone %></p>
+    <p><span>メールアドレス</span>：<%= @user.email %></p>
+    <p><span>郵便番号</span>：<%= @user.postcode %></p>
+    <p><span>住所</span>：<%= @user.prefecture.name %><%= @user.city %><%= @user.other_address %></p>
+    <%= link_to '変更する', '/users/edit', class: "btn_edit_user" %>
 </div>
 
 <div class="total_price">
@@ -36,6 +36,6 @@
     <p>¥<%= @carriage_total.to_s(:delimited) %></p>
 </div>
 
-<%= button_to '注文確定', {controller: 'carts', action: 'complete'}, {method: :get} %>
-<%= link_to 'カート画面に戻る', '/carts'%>
+<%= button_to '注文確定', {controller: 'carts', action: 'complete'}, {method: :get, class: "btn_complete"} %>
+<%= link_to 'カート画面に戻る', '/carts', class: "btn_return_cart"%>
 <%= render 'items/footer' %>

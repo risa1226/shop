@@ -1,15 +1,18 @@
+<div class="log_in">
 <%- if controller_name != 'sessions' %>
-  <%= link_to t('activerecord.attributes.user.log_in'), new_session_path(resource_name) %><br />
+  <%= link_to t('activerecord.attributes.user.log_in'), new_session_path(resource_name), class:"btn_log_in" %><br />
 <% end %>
+</div>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t('users.shared.links.sign_up'), new_registration_path(resource_name) %><br />
+  <%= link_to t('users.shared.links.sign_up'), new_registration_path(resource_name), class:"btn_new_sign_up" %><br />
 <% end %>
 
+<div class="forgot_password">
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to t('users.shared.links.forgot_your_password'), new_password_path(resource_name) %><br />
+  <%= link_to t('users.shared.links.forgot_your_password'), new_password_path(resource_name), class:"btn_forgot_password" %><br />
 <% end %>
-
+</div>
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 <% end %>

@@ -10,8 +10,8 @@
     <%= image_tag 'image_small.png', class: "image_small" %>
     <h3 class="item_name"><%= item.name %></h3>
     <h3 class="item_second_name"><%= item.second_name %></h3>
-    <h3 class="item_price">¥<%= item.price %></h3>
-    <h4><%= item.description %></h4>
+    <h3 class="item_price">¥<%= item.price.to_s(:delimited) %>(税込)</h3>
+    <h4 class="item_description"><%= item.description %></h4>
     </div>
     <% end %>
 </div>
@@ -22,6 +22,6 @@
 <%= image_tag 'image_middle.png' %>
 </div>
 
-<%= link_to image_tag("intro_page.png"), "/", class: "intro_page" %>
+<%= link_to image_tag("intro_page.png"), "/company", class: "intro_page" %>
 
 <%= render 'items/footer' %>

@@ -13,12 +13,12 @@
     <h4 class="description"><%= order.item.description %></h4>
         <%= form_with url: update_item_path do |f| %>
             <div class="field">
-                <%= f.label :quantity, "購入数" %>
-                <%= f.number_field :quantity, min:1,max:99, value: order.quantity %>
+                <%= f.label :quantity, "購入数", class:"order_quantity" %>
+                <%= f.number_field :quantity, min:1,max:99, value: order.quantity, class:"number_field" %>
                 <%= f.hidden_field :item_id, :value => order.item.id %>
             </div>
             <div class="action">
-                <%= f.submit "変更する" %>
+                <%= f.submit "変更する", class:"btn_change_quantity" %>
             </div>
         <% end %>
         <%= form_with url: delete_item_path do |f| %>
@@ -26,20 +26,20 @@
                 <%= f.hidden_field :item_id, :value => order.item.id %>
             </div>
             <div class="action">
-                <%= f.submit "削除" %>
+                <%= f.submit "削除", class:"btn_delete_item" %>
             </div>
         <% end%>
     </div>
     <% end %>
 </div>
 <% if @orders.blank? %>
-    <%= button_to '商品一覧へ', {controller: 'items', action: 'index'}, {method: :get} %>
+    <%= button_to '商品一覧へ', {controller: 'items', action: 'index'}, {method: :get, class:"btn_item_index"} %>
 <% else %>
     <div class="action">
-        <%= button_to '商品一覧へ', {controller: 'items', action: 'index'}, {method: :get} %>
+        <%= button_to '商品一覧へ', {controller: 'items', action: 'index'}, {method: :get, class:"btn_item_index"} %>
     </div>
     <div class="action">
-        <%= button_to 'レジへ進む', {controller: 'carts', action: 'save_user'}, {method: :get} %>
+        <%= button_to 'レジへ進む', {controller: 'carts', action: 'save_user'}, {method: :get, class:"btn_go_confirm"} %>
     </div>
 <% end %>
 <%= render 'items/footer' %>

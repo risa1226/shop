@@ -9,13 +9,13 @@
     <h3 class="item_price">¥<%= item.price %></h3>
     <h4 class="description"><%= item.description %></h4>
         <%= form_with url: add_item_path do |f| %>
-            <div class="field">
-                <%= f.label :quantity, "購入数" %>
-                <%= f.number_field :quantity, min:1,max:99 %>
+            <div class="field_quantity">
+                <%= f.label :quantity, "購入数", class:"order_quantity" %>
+                <%= f.number_field :quantity, min:1,max:99, class:"number_field"%>
                 <%= f.hidden_field :item_id, :value => item.id %>
             </div>
             <div class="action">
-                <%= f.submit "カートに入れる" %>
+                <%= f.submit "カートに入れる", class: "btn_add_cart" %>
             </div>
         <% end %>
     </div>
