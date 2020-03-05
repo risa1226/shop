@@ -1,24 +1,30 @@
 <%= render 'header' %>
 <h2>商品一覧</h2>
 <div class="items">
-    <% @items.each do |item| %>
-    <div class="item">
-    <%= image_tag 'image_small.png' %>
-    <h3 class="item_name"><%= item.name %></h3>
-    <h3 class="item_second_name"><%= item.second_name %></h3>
-    <h3 class="item_price">¥<%= item.price %></h3>
-    <h4 class="description"><%= item.description %></h4>
-        <%= form_with url: add_item_path do |f| %>
-            <div class="field_quantity">
-                <%= f.label :quantity, "購入数", class:"order_quantity" %>
-                <%= f.number_field :quantity, min:1,max:99, class:"number_field"%>
-                <%= f.hidden_field :item_id, :value => item.id %>
-            </div>
-            <div class="action">
-                <%= f.submit "カートに入れる", class: "btn_add_cart" %>
+    <div id="app">
+        <% @items.each do |item| %>
+            <div class="item">
+                <%= image_tag 'image_small.png' %>
+                <h3 class="item_name"><%= item.name %></h3>
+                <h3 class="item_second_name"><%= item.second_name %></h3>
+                <h3 class="item_price">¥<%= item.price %></h3>
+                <h4 class="description"><%= item.description %></h4>
+                    <%= form_with url: add_item_path do |f| %>
+                        <div class="field_quantity">
+                            <%= f.label :quantity, "購入数", class:"order_quantity" %>
+                            <%= f.number_field :quantity, min:1,max:99, class:"number_field"%>
+                            <%= f.hidden_field :item_id, :value => item.id %>
+                        </div>
+                        <div class="action">
+                            <%= f.submit "カートに入れる", class: "btn_add_cart" %>
+                        </div>
+                    <% end %>
+                <% if user_signed_in? %> 
+                    <like-component v-bind:user-id='<%= current_user.id %>' v-bind:item-id='<%= item.id %>' v-bind:favorite='<%= !current_user.hoge(item.id).nil? %>'></like-component>
+                <% end %>
             </div>
         <% end %>
     </div>
-    <% end %>
 </div>
 <%= render 'footer' %>
+<%= javascript_pack_tag 'hello_vue' %>

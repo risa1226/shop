@@ -14,4 +14,10 @@ class User < ApplicationRecord
 
   belongs_to :prefecture, optional: true
   has_many :carts
+  has_many :favorites
+
+  def hoge(item_id)
+    self.favorites.find_by(user_id: self.id, item_id: item_id)
+  end
+
 end

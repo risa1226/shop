@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   }
   get '/users', to: redirect("/users/sign_up")
   
+  namespace :api, { format: 'json' } do
+    # resources :favorites, only: [:index, :create, :destroy]
+    post '/favorites', to: 'favorites#create'
+    delete '/favorite/delete', to: 'favorites#destroy'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'displays#home'
   resources :displays do

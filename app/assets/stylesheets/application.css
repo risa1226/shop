@@ -27,6 +27,10 @@
     margin: 0px 5%;
 }
 
+#app{
+    display: flex;
+}
+
 .item{
     display: inline-block;
     width: 50%;
@@ -348,4 +352,26 @@ li > span{
 
 .user_info > p > span{
     font-weight: bold;
+}
+
+.button_favorite{
+    width: 140px;
+    height: 30px;
+    background: none;
+    border-color: #F1F380;
+    border-radius: 40px;
+    color: #919191;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.favorite{
+    width: 140px;
+    height: 30px;
+    background: #F1F380;
+    border-color: #F1F380;
+    border-radius: 40px;
+    color: #919191;
+    font-weight: bold;
+    font-size: 15px;
 }
