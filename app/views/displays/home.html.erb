@@ -1,13 +1,13 @@
 <%= render 'items/header' %>
 <div class="image_top">
-<%= image_tag 'image.png', class: "top_image" %>
+<%= image_tag 'image_top.png', class: "top_image" %>
 
 </div>
 
 <div class="items">
     <% @items[0..1].each do |item| %>
     <div class="item">
-    <%= image_tag 'image_small.png', class: "image_small" %>
+    <%= image_tag item.image_path, class: "image_small" %>
     <h3 class="item_name"><%= item.name %></h3>
     <h3 class="item_second_name"><%= item.second_name %></h3>
     <h3 class="item_price">¥<%= item.price.to_s(:delimited) %>(税込)</h3>
@@ -19,7 +19,7 @@
 <%= link_to image_tag("items_page.png"), "/items", class: "items_page" %>
 
 <div class="image_middle">
-<%= image_tag 'image_middle.png' %>
+<%= image_tag 'image_company.png' %>
 </div>
 
 <%= link_to image_tag("intro_page.png"), "/company", class: "intro_page" %>

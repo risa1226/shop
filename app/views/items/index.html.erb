@@ -4,7 +4,7 @@
     <div id="app">
         <% @items.each do |item| %>
             <div class="item">
-                <%= image_tag 'image_small.png' %>
+                <%= image_tag item.image_path %>
                 <h3 class="item_name"><%= item.name %></h3>
                 <h3 class="item_second_name"><%= item.second_name %></h3>
                 <h3 class="item_price">¥<%= item.price %></h3>
