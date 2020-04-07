@@ -1,5 +1,7 @@
 <%= render 'items/header' %>
-<h2>お問い合わせ</h2>
+<div class="heading", style="background-image:url(<%= asset_path "heading_contact.png" %>)">
+    <h2 class="heading_title">お問い合わせ</h2>
+</div>
 <h4>TEL/FAX 023-673-4186
     <br><%= mail_to 'sukazyu@hoge.huga', 'MAILはこちら', class: "mail" %>
 </h4>

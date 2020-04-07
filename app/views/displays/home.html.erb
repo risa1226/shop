@@ -1,7 +1,10 @@
 <%= render 'items/header' %>
 <div class="image_top">
-<%= image_tag 'image_top.png', class: "top_image" %>
-
+    <div class="slider">
+    <%= image_tag 'image_top.png', class: "top_image" %>
+    <%= image_tag 'image_top2.png', class: "top_image" %>
+    <%= image_tag 'image_top3.png', class: "top_image" %>
+    </div>
 </div>
 
 <div class="items">
@@ -19,7 +22,11 @@
 <%= link_to image_tag("items_page.png"), "/items", class: "items_page" %>
 
 <div class="image_middle">
-<%= image_tag 'image_company.png' %>
+    <div class="slider">
+    <%= image_tag 'image_company.png', class: "company_image" %>
+    <%= image_tag 'image_company2.png', class: "company_image" %>
+    <%= image_tag 'image_company3.png', class: "company_image" %>
+    </div>
 </div>
 
 <%= link_to image_tag("intro_page.png"), "/company", class: "intro_page" %>

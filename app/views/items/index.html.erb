@@ -1,5 +1,7 @@
 <%= render 'header' %>
-<h2>商品一覧</h2>
+<div class="heading", style="background-image:url(<%= asset_path "heading_items.png" %>)">
+    <h2 class="heading_title">商品一覧</h2>
+</div>
 <div class="items">
     <div id="app">
         <% @items.each do |item| %>
