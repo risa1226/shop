@@ -13,10 +13,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-//= require turbolinks
+// = require turbolinks
 //= require_tree .
 
-$(function() {
+$(document).on('turbolinks:load', function() {
     $('.slider').slick({
         dots: false,
         autoplay: true,
