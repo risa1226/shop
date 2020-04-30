@@ -179,7 +179,37 @@ li > span{
     vertical-align: middle;
 }
 
-.login_mypage{
+.mypage_button{
+    font-size: 16px;
+    border: solid 1px #CC2326;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+.logout_button{
+    font-size: 16px;
+    border: solid 1px #557ADB;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+.mypage_button > a, .logout_button > a {
+    text-decoration: none;
+}
+
+.mypage_button > a{
+    color: #CC2326;
+}
+
+.logout_button > a{
+    color: #557ADB;
+}
+
+.logout_button{
+    font-size: 16px;
+}
+
+.login_button{
     border: solid 1px #CC2326;
     border-radius: 10px;
     padding: 0px 20px;
