@@ -143,6 +143,14 @@ li{
     list-style: none;      
 }
 
+li:hover{
+    opacity: 0.6;
+}
+
+li > a > img{
+    vertical-align: middle;
+}
+
 .menu_text{
     text-decoration: none;
     color: #494545;
@@ -154,6 +162,33 @@ li{
 li > span{
     border-right: 1px solid #c4c4c4;
     padding-right: 10px;
+}
+
+.check_cart{
+    border: solid 1px #2E4B2A;
+    padding: 0px 20px;
+    border-radius: 10px;
+}
+
+.check_cart > a{
+    text-decoration: none;
+    color: #2E4B2A;
+    font-size: 16px;
+}
+.check_cart > a > img{
+    vertical-align: middle;
+}
+
+.login_mypage{
+    border: solid 1px #CC2326;
+    border-radius: 10px;
+    padding: 0px 20px;
+}
+
+.login{
+    font-size: 16px;
+    text-decoration: none;
+    color: #CC2326;
 }
 
 .footer{
@@ -233,7 +268,7 @@ li > span{
 
 .image_top{
     position: relative;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 100px;
 }
 
@@ -438,6 +473,7 @@ li > span{
     margin: 0 auto;
     z-index: 20;
 }
+
 
 .writing{
    margin: 160px 0 100px 0;
