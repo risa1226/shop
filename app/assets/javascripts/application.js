@@ -13,17 +13,14 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-// = require turbolinks
+// = reuire imageRotator.js
 //= require_tree .
 
-$(document).on('turbolinks:load', function() {
-    $('.slider').slick({
-        dots: false,
-        autoplay: true,
-        autoplaySpeed: 3500,
-        prevArrow: false,
-        nextArrow: false,
-        pauseOnFocus: false,
-        pauseOnHover: false,
-    });
+$(document).ready(function () {
+  var $imageDiv = $("#imageRotator");
+  var $imageRotator = $imageDiv.imageRotator({
+    imageTime: 7000,
+    fadeTime: 3000
+  });
+  $imageRotator.start();
 });

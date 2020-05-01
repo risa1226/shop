@@ -1,6 +1,6 @@
 <%= render 'items/header' %>
 <div class="image_top">
-    <div class="slider">
+    <div id="imageRotator">
     <%= image_tag 'image_top.png', class: "top_image" %>
     <%= image_tag 'image_top2.png', class: "top_image" %>
     <%= image_tag 'image_top3.png', class: "top_image" %>
@@ -10,25 +10,25 @@
 <div class="items">
     <% @items[0..1].each do |item| %>
     <div class="item">
-    <%= image_tag item.image_path, class: "image_small" %>
-    <h3 class="item_name"><%= item.name %></h3>
-    <h3 class="item_second_name"><%= item.second_name %></h3>
-    <h3 class="item_price">¥<%= item.price.to_s(:delimited) %>(税込)</h3>
-    <h4 class="item_description"><%= item.description %></h4>
+        <%= image_tag item.image_path, class: "image_small" %>
+            <div class="item_details">
+                <h3 class="item_name"><%= item.name %></h3>
+                <h3 class="item_second_name"><%= item.second_name %></h3>
+                <h3 class="item_price">¥ <%= item.price.to_s(:delimited) %><span>(税込)</span></h3>
+                <h4 class="item_description">■<%= item.description %></h4>
+            </div>
     </div>
     <% end %>
 </div>
 
-<%= link_to image_tag("items_page.png"), "/items", class: "items_page" %>
+<%= link_to "商品一覧へ", "/items", class: "items_page" %>
 
 <div class="image_middle">
-    <div class="slider">
+    <p><span>夏</span>と<span>冬</span>の気温差が大きい</p>
+    <p>はっきりとした<span>四季</span>の変化が、果実が美味しく育つ<span>秘訣</span>です。</p>
     <%= image_tag 'image_company.png', class: "company_image" %>
-    <%= image_tag 'image_company2.png', class: "company_image" %>
-    <%= image_tag 'image_company3.png', class: "company_image" %>
-    </div>
 </div>
 
-<%= link_to image_tag("intro_page.png"), "/company", class: "intro_page" %>
+<%= link_to "果樹園紹介へ", "/company", class: "intro_page" %>
 
 <%= render 'items/footer' %>

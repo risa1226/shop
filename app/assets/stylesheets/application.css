@@ -222,22 +222,24 @@ li > span{
 }
 
 .footer{
-    background-color: #c4c4c4;
+    border-top: dashed 1px black;
+    width: 70%;
     height: 220px;
-    padding-top: 40px;
-    margin-top: 100px;
+    padding-top: 20px;
+    margin: 300px auto 0 auto;
     text-align: center;
 }
 
 .footer > p {
-    color: #ffffff;
+    color: #c4c4c4;
     font-size: 12px;
     margin-top: 40px; 
 }
 
 .footer_menu_text{
     text-decoration: none;
-    color: #ffffff;
+    color: black;
+    font-size: 16px;
     padding: 0 10px 0 10px;
 }
 
@@ -290,22 +292,14 @@ li > span{
     margin-top: 100px;
 }
 
+.image_top{
+    height: 600px;
+}
 
-.top_image{
+.image_top > #imageRotator > img {
+    position: absolute;
     width: 100%;
     height: auto;
-}
-
-.image_top{
-    position: relative;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
-.arrow_under{
-    position: absolute;
-    left: 47%;
-    bottom: 5%;
 }
 
 .image_middle{
@@ -315,9 +309,23 @@ li > span{
     font-size: 22px;
 }
 
+.items_page, .intro_page{
+    font-size: 16px;
+    color: #2E4B2A;
+    text-decoration: none;
+    padding: 10px 200px;
+    border: solid 2px #2E4B2A;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.items_page:hover, .intro_page:hover{
+    color: #ffffff;
+    background-color: #2E4B2A;
+}
+
 .image_middle > p > span {
     font-size: 26px;
-    
 }
 
 .intro{
